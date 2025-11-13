@@ -1,20 +1,45 @@
 import React from 'react'
 import useFetch from '../api/useFetch';
+import GhostIcon from './icons/GhostIcon';
 const {VITE_API_URL: url} = import.meta.env;
 export default function Products() {
   const {data, loading, error} = useFetch(url);
   return (
-    <>
     <section className="products-container">
       <h3>Productos</h3>
-      <ul>
-        {error && <li>Error: {error}</li>}
-        {loading && <li>Cargando datos...</li>}
-        {data?.map((product) => {
-          return <li key={product.id}>{product.title}</li>
-        })}
-      </ul>
+
+      {error && <p className="products-error">Error: {error}</p>}
+
+      {loading ? (
+        <section className="loading-container">
+          <GhostIcon/>
+          <p>Cargando productos...</p>
+        </section>
+      ) : (
+        <section className="products-grid">
+          {data?.map((product) => (
+            <article key={product.id} className="product-card">
+              <section className="product-image">
+                <img
+                  src={product.image || "https://via.placeholder.com/300x200?text=Producto"}
+                  alt={product.title}
+                />
+              </section>
+              <section className="product-info">
+                <h4 className="product-title">{product.title}</h4>
+                <p className="product-price">$ {product.price}</p>
+                  <section className="product-actions">
+                    <button className="product-btn">Ver más</button>
+                    <button className="product-btn add-cart">
+                      Añadir al carrito
+                    </button>
+                  </section>
+              </section>
+            </article>
+          ))}
+        </section>
+      )}
     </section>
-    </>
+
   )
 }

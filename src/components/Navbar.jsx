@@ -1,8 +1,9 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faHouse, faStore, faGhost} from '@fortawesome/free-solid-svg-icons'
+import {faHouse, faPencil, faStore, faTruck} from '@fortawesome/free-solid-svg-icons'
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Darkmode from './Darkmode';
+import GhostIcon from './icons/GhostIcon';
 
 export default function Navbar() {
   return (
@@ -11,7 +12,7 @@ export default function Navbar() {
         <section className="header-content">
           <section className="header-icon">
             <Link className="header-links" to="/">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M40.1 467.1l-11.2 9C25.7 478.6 21.8 480 17.8 480 8 480 0 472 0 462.2L0 192C0 86 86 0 192 0S384 86 384 192l0 270.2c0 9.8-8 17.8-17.8 17.8-4 0-7.9-1.4-11.1-3.9l-11.2-9c-13.4-10.7-32.8-9-44.1 3.9L269.3 506c-3.3 3.8-8.2 6-13.3 6s-9.9-2.2-13.3-6l-26.6-30.5c-12.7-14.6-35.4-14.6-48.2 0L141.3 506c-3.3 3.8-8.2 6-13.3 6s-9.9-2.2-13.3-6L84.2 471c-11.3-12.9-30.7-14.6-44.1-3.9zM160 192a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm96 32a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"/></svg>
+              <GhostIcon/>
               <h3>404 Store</h3>
             </Link>
           </section>
@@ -27,6 +28,14 @@ export default function Navbar() {
               <Link className="header-links" to="/Products">
                 <FontAwesomeIcon icon={faStore}/>
                 Productos
+              </Link>
+              <Link className="header-links" to="/ShippingMethods">
+                <FontAwesomeIcon icon={faTruck}/>
+                Métodos de envío
+              </Link>
+              <Link className="header-links" to="/ContactForm">
+                <FontAwesomeIcon icon={faPencil}/>
+                Formulario de Contacto
               </Link>
             </nav>
           </section>
