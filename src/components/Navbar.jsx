@@ -1,11 +1,14 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faHouse, faPencil, faStore, faTruck} from '@fortawesome/free-solid-svg-icons'
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Darkmode from './Darkmode';
 import GhostIcon from './icons/GhostIcon';
 
 export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const toggleMenu = () => setMenuOpen(!menuOpen);
+  
   return (
     <>
       <section className="header-container">
@@ -20,7 +23,14 @@ export default function Navbar() {
             <Darkmode/>
           </section>
           <section className="header-menu-container">
-            <nav className="header-menu">
+            <button 
+            className={`menu-toggle ${menuOpen ? "open": ""}`}
+            onClick={toggleMenu}
+            aria-label="Abrir menú"
+            >
+              <span className="hamburger"></span>
+            </button>
+            <nav className={`header-menu ${menuOpen ? "open" : ""}`}>
               <Link className="header-links" to="/">
                 <FontAwesomeIcon icon={faHouse}/>
                 Inicio
