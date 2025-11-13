@@ -6,7 +6,7 @@ import Footer from './components/Footer';
 import Index from './components/Index';
 import ShippingMethods from './components/ShippingMethods';
 import ContactForm from './components/ContactForm';
-import Darkmode from './components/Darkmode';
+
 export default function App() {
   return (
     <>
