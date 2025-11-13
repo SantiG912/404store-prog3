@@ -8,6 +8,8 @@ import GhostIcon from './icons/GhostIcon';
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const toggleMenu = () => setMenuOpen(!menuOpen);
+
+  const handleClose = () => setMenuOpen(false);
   
   return (
     <>
@@ -31,19 +33,19 @@ export default function Navbar() {
               <span className="hamburger"></span>
             </button>
             <nav className={`header-menu ${menuOpen ? "open" : ""}`}>
-              <Link className="header-links" to="/">
+              <Link className="header-links" to="/" onClick={handleClose}>
                 <FontAwesomeIcon icon={faHouse}/>
                 Inicio
               </Link>
-              <Link className="header-links" to="/Products">
+              <Link className="header-links" to="/Products" onClick={handleClose}>
                 <FontAwesomeIcon icon={faStore}/>
                 Productos
               </Link>
-              <Link className="header-links" to="/ShippingMethods">
+              <Link className="header-links" to="/ShippingMethods" onClick={handleClose}>
                 <FontAwesomeIcon icon={faTruck}/>
                 Métodos de envío
               </Link>
-              <Link className="header-links" to="/ContactForm">
+              <Link className="header-links" to="/ContactForm" onClick={handleClose}>
                 <FontAwesomeIcon icon={faPencil}/>
                 Formulario de Contacto
               </Link>
