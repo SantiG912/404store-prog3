@@ -18,7 +18,7 @@
     --two-rem: 2rem;
     --point-two-rem: 1.2rem;
 
-    --surface-color: #fff8f6;
+    --surface-color: #fff8f621;
     --primary-color: #f95738;
     --primary-hover: #c0442b;
     --primary-active: #a33924;
@@ -34,7 +34,7 @@ body{
     background: linear-gradient(180deg, #0f1a20 0%, #15242c 100%);
     --font-color: #e7f6f9;
 
-    --surface-color: #15242c;
+    --surface-color: #15242c31;
     --primary-color: #64a6bd;
     --primary-hover: #3c7a91;
     --primary-active: #175e79;
