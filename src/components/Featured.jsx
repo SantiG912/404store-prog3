@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
 import useFetch from '../api/useFetch'
 import GhostIcon from './icons/GhostIcon';
+import { Link } from 'react-router-dom';
 const {VITE_API_URL: url} = import.meta.env;
 
 export default function Featured() {
@@ -40,7 +41,9 @@ export default function Featured() {
                   <p className="product-price">$ {product.price}</p>
 
                   <div className="product-actions">
-                    <button className="product-btn">Ver más</button>
+                    <Link to={`/Products/${product.id}`} className="product-btn">
+                      Ver más
+                    </Link>
                     <button className="product-btn add-cart">
                       Añadir al carrito
                     </button>

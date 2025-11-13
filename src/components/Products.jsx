@@ -1,6 +1,7 @@
 import React from 'react'
 import useFetch from '../api/useFetch';
 import GhostIcon from './icons/GhostIcon';
+import { Link } from 'react-router-dom';
 const {VITE_API_URL: url} = import.meta.env;
 export default function Products() {
   const {data, loading, error} = useFetch(url);
@@ -29,7 +30,9 @@ export default function Products() {
                 <h4 className="product-title">{product.title}</h4>
                 <p className="product-price">$ {product.price}</p>
                   <section className="product-actions">
-                    <button className="product-btn">Ver más</button>
+                    <Link to={`/Products/${product.id}`} className="product-btn">
+                      Ver más
+                    </Link>
                     <button className="product-btn add-cart">
                       Añadir al carrito
                     </button>
