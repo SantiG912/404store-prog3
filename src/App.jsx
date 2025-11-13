@@ -1,9 +1,11 @@
 import React from 'react';
 import Products from './components/Products';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Form } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Index from './components/Index';
+import ShippingMethods from './components/ShippingMethods';
+import ContactForm from './components/ContactForm';
 import Darkmode from './components/Darkmode';
 export default function App() {
   return (
@@ -16,6 +18,8 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Index/>}/>
             <Route path="/Products" element={<Products/>}/>
+            <Route path="/ShippingMethods" element={<ShippingMethods/>}/>
+            <Route path="/ContactForm" element={<ContactForm/>}/>
           </Routes>
         </section>
       </section>
