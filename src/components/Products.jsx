@@ -1,21 +1,24 @@
-import React, { useMemo, useState } from 'react'
+import React, { useMemo, useState } from 'react';
 import useFetch from '../api/useFetch';
 import GhostIcon from './icons/GhostIcon';
 import { Link } from 'react-router-dom';
-const {VITE_API_URL: url} = import.meta.env;
+import { useCart } from './CartContext';
+const { VITE_API_URL: url } = import.meta.env;
+
 export default function Products() {
-  const {data, loading, error} = useFetch(url);
+  const { data, loading, error } = useFetch(url);
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const { addProduct, countProducts, total, removeProduct, clearCart } = useCart();
 
   const categories = useMemo(() => {
     if(!data) return [];
-    const unique = [... new Set(data.map((p) => p.category))];
-    return unique.sort();
+    return [...new Set(data.map(p => p.category))].sort();
   }, [data]);
 
   const filteredProducts = useMemo(() => {
+    if(!data) return [];
     if(selectedCategory === "all") return data;
-    return data?.filter((p) => p.category === selectedCategory);
+    return data.filter(p => p.category === selectedCategory);
   }, [data, selectedCategory]);
 
   return (
@@ -31,30 +34,28 @@ export default function Products() {
         </section>
       ) : (
         <>
-        <section className="filter-container">
-          <label htmlFor="category-filter">Filtrar por categoría:</label>
-          <select 
-            id="category-filter"
-            value={selectedCategory}
-            onChange={(e) => setSelectedCategory(e.target.value)}
-          >
-            <option value="all">Todas</option>
-            {categories.map((cat) => (
-              <option key={cat} value={cat}>
-                {cat.charAt(0).toUpperCase() + cat.slice(1)}
-              </option>
-            ))}
-          </select>
-        </section>
-        <section className="products-grid">
-          {filteredProducts?.length > 0 ? (
-              filteredProducts.map((product) => (
+          <section className="filter-container">
+            <label htmlFor="category-filter">Filtrar por categoría:</label>
+            <select 
+              id="category-filter"
+              value={selectedCategory}
+              onChange={e => setSelectedCategory(e.target.value)}
+            >
+              <option value="all">Todas</option>
+              {categories.map(cat => (
+                <option key={cat} value={cat}>
+                  {cat.charAt(0).toUpperCase() + cat.slice(1)}
+                </option>
+              ))}
+            </select>
+          </section>
+
+          <section className="products-grid">
+            {filteredProducts.length > 0 ? (
+              filteredProducts.map(product => (
                 <article key={product.id} className="product-card">
                   <section className="product-image">
-                    <img
-                      src={product.image}
-                      alt={product.title}
-                    />
+                    <img src={product.image} alt={product.title} />
                   </section>
                   <section className="product-info">
                     <h4 className="product-title">{product.title}</h4>
@@ -63,7 +64,18 @@ export default function Products() {
                       <Link to={`/products/${product.id}`} className="product-btn">
                         Ver más
                       </Link>
-                      <button className="product-btn add-cart">
+                      <button
+                        className="product-btn add-cart"
+                        onClick={() =>
+                          addProduct({
+                            id: product.id,
+                            title: product.title,
+                            price: product.price,
+                            image: product.image,
+                            quantity: 1
+                          })
+                        }
+                      >
                         Añadir al carrito
                       </button>
                     </section>
@@ -73,10 +85,9 @@ export default function Products() {
             ) : (
               <p>No hay productos en esta categoría.</p>
             )}
-        </section>
+          </section>
         </>
       )}
     </section>
-
-  )
+  );
 }

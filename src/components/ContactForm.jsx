@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
+import { useCart } from './CartContext';
 
 export default function ContactForm() {
+  const { allProducts, countProducts, total, removeProduct, clearCart } = useCart();
   const [formData, setFormData] = useState({
     name: "",
     email: "",

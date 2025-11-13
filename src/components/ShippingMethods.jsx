@@ -2,8 +2,10 @@ import React from 'react'
 import HomeIcon from './icons/HomeIcon'
 import TruckIcon from './icons/TruckIcon'
 import FastTruckIcon from './icons/FastTruckIcon'
+import { useCart } from './CartContext';
 
 export default function ShippingMethods() {
+  const { allProducts, countProducts, total, removeProduct, clearCart } = useCart();
   const shippingOptions = [
     {
       id: 1,

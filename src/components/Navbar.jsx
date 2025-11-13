@@ -4,13 +4,16 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Darkmode from './Darkmode';
 import GhostIcon from './icons/GhostIcon';
+import Cart from './Cart';
+import { useCart } from './CartContext';
 
 export default function Navbar() {
+  /*Menú hamburguesa*/
   const [menuOpen, setMenuOpen] = useState(false);
   const toggleMenu = () => setMenuOpen(!menuOpen);
-
   const handleClose = () => setMenuOpen(false);
-  
+  const { allProducts, countProducts, total, removeProduct, clearCart } = useCart();
+
   return (
     <>
       <section className="header-container">
@@ -24,6 +27,7 @@ export default function Navbar() {
           <section className="darkmode-container">
             <Darkmode/>
           </section>
+          <Cart/>
           <section className="header-menu-container">
             <button 
             className={`menu-toggle ${menuOpen ? "open": ""}`}
