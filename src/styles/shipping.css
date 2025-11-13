@@ -1,0 +1,70 @@
+.shipping-container {
+  width: 100%;
+  padding: var(--two-rem) var(--one-rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--two-rem);
+}
+
+.shipping-title {
+  font-size: 1.6rem;
+  color: var(--primary-color);
+  text-align: center;
+  font-weight: 600;
+}
+
+.shipping-cards {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.shipping-card {
+  border: 1px solid var(--primary-active);
+  border-radius: var(--one-rem);
+  padding: var(--point-two-rem);
+  width: 280px;
+  min-height: 160px;
+  text-align: center;
+  box-shadow: 0 0 8px var(--ghost-glow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.shipping-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 12px var(--accent-ghost);
+}
+
+.shipping-card h4 {
+  color: var(--font-color);
+  margin-bottom: 0.5rem;
+}
+
+.shipping-card p {
+  color: var(--font-color);
+  font-size: 0.95rem;
+}
+
+.shipping-icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 0.8rem;
+}
+
+.shipping-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: var(--primary-color);
+  transition: fill 0.2s ease;
+}
+
+.shipping-card:hover .shipping-icon svg {
+  fill: var(--accent-ghost);
+}
