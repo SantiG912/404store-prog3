@@ -24,6 +24,7 @@ El objetivo del proyecto es aplicar los conceptos fundamentales de **componentiz
 - 🧭 **React Router** – Navegación entre páginas.  
 - 💾 **LocalStorage / Context API** – Persistencia del carrito y del estado global.  
 - ⚡ **Vite** – Entorno de desarrollo rápido y optimizado.
+- 🔧 **API UTILIZADA** - https://fakestoreapi.com.
 
 ---
 
