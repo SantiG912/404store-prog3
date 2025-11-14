@@ -1,16 +1,99 @@
-# React + Vite
+🛍️ 404Store
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 👥 Integrantes del Grupo
 
-Currently, two official plugins are available:
+- [Fausto Acosta]
+- [Santiago Grandoli]
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🧩 Descripción General de la Aplicación
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+**404Store** es una tienda online desarrollada con **React**, **JavaScript** y **CSS**, creada para ofrecer una experiencia de compra moderna, dinámica y rápida.  
+Permite explorar un catálogo de productos, ver sus detalles y agregarlos al carrito, todo dentro de una interfaz intuitiva y responsive.
 
-## Expanding the ESLint configuration
+El objetivo del proyecto es aplicar los conceptos fundamentales de **componentización**, **manejo de estado**, **ruteo con React Router** y **persistencia de datos** con Context API y LocalStorage.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## ⚙️ Tecnologías Utilizadas
+
+- ⚛️ **React** – Framework principal para construir la interfaz y los componentes.  
+- 💻 **JavaScript (ES6+)** – Lógica del sistema y manejo de datos.  
+- 🎨 **CSS** – Diseño moderno y adaptable a todos los dispositivos.  
+- 🧭 **React Router** – Navegación entre páginas.  
+- 💾 **LocalStorage / Context API** – Persistencia del carrito y del estado global.  
+- ⚡ **Vite** – Entorno de desarrollo rápido y optimizado.
+
+---
+
+## 🧩 Funcionalidades Principales
+
+✅ Catálogo dinámico de productos.  
+✅ Vista detallada de cada producto.  
+✅ Carrito de compras con actualización en tiempo real.  
+✅ Cálculo automático del total.
+✅ Filtros y búsqueda de productos.  
+✅ Interfaz responsive (adaptada a móviles y escritorio).
+
+---
+
+## 📂 Estructura del Proyecto
+
+```
+/src
+ ├── components/       # Componentes reutilizables (Navbar, ProductCard, Cart, etc.)
+ ├── styles/           # Archivos CSS (módulos)
+ ├── App.jsx           # Componente raíz
+ ├── index.css         # Importacion de archivos CSS
+ └── main.jsx          # Punto de entrada principal
+```
+
+---
+
+## ⚙️ Instrucciones Básicas para Ejecutar el Proyecto
+
+### 1️⃣ Clonar el repositorio
+
+Asegurate de tener Git instalado.  
+Luego abrí la terminal y escribí:
+
+```bash
+git clone https://github.com/faustoacosta/404store.git
+```
+
+### 2️⃣ Entrar a la carpeta del proyecto
+
+```bash
+cd 404store
+```
+
+### 3️⃣ Instalar las dependencias
+
+```bash
+npm install
+```
+
+### 4️⃣ Ejecutar el proyecto
+
+```bash
+npm run dev
+```
+
+Abrí la URL local (normalmente: [http://localhost:5173](http://localhost:5173)) en tu navegador.
+
+---
+
+## 💡 Notas Adicionales
+
+- Proyecto desarrollado con **Vite + React + CSS + JavaScript**.  
+- Compatible con navegadores modernos.  
+- Código modular y estructurado para facilitar la escalabilidad.
+
+---
+
+## 👨‍💻 Autores
+
+Desarrollado por:  
+- **Fausto Acosta**  
+- **Santiago Grandoli**
